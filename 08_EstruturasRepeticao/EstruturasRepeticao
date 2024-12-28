@@ -1,0 +1,130 @@
+// Estruturas de Repetição (Loops) em JavaScript
+
+// 1. for
+// - Usa-se quando o número de iterações é conhecido.
+
+for (let i = 0; i < 5; i++) {
+    console.log(`Iteração ${i}`); // Saída: Iteração 0, Iteração 1... até Iteração 4
+}
+
+// - Loop em arrays
+const frutas = ["maçã", "banana", "laranja"];
+for (let i = 0; i < frutas.length; i++) {
+    console.log(frutas[i]); // Saída: maçã, banana, laranja
+}
+
+// 2. while
+// - Usa-se quando não se sabe o número de iterações antecipadamente.
+
+let contador = 0;
+while (contador < 3) {
+    console.log(`Contador: ${contador}`); // Saída: Contador: 0, Contador: 1, Contador: 2
+    contador++;
+}
+
+// - Loop infinito (cuidado com isso!)
+// while (true) {
+//     console.log("Loop infinito"); // Deve ser evitado ou usado com uma condição de saída
+// }
+
+// 3. do...while
+// - Garante que o bloco será executado pelo menos uma vez.
+
+let numero = 5;
+do {
+    console.log(`Número: ${numero}`); // Saída: Número: 5 (executa pelo menos uma vez)
+    numero--;
+} while (numero > 0);
+
+// 4. for...of
+// - Itera sobre os valores de objetos iteráveis, como arrays ou strings.
+
+for (const fruta of frutas) {
+    console.log(fruta); // Saída: maçã, banana, laranja
+}
+
+const palavra = "JavaScript";
+for (const letra of palavra) {
+    console.log(letra); // Saída: J, a, v, a, S, c, r, i, p, t
+}
+
+// 5. for...in
+// - Itera sobre as chaves (propriedades) de um objeto.
+
+const pessoa = {
+    nome: "João",
+    idade: 25,
+    cidade: "São Paulo",
+};
+
+for (const chave in pessoa) {
+    console.log(`${chave}: ${pessoa[chave]}`);
+    // Saída:
+    // nome: João
+    // idade: 25
+    // cidade: São Paulo
+}
+
+// 6. break e continue
+// - break: Sai do loop imediatamente.
+// - continue: Pula a iteração atual e vai para a próxima.
+
+for (let i = 0; i < 5; i++) {
+    if (i === 3) {
+        break; // Sai do loop quando i for 3
+    }
+    console.log(i); // Saída: 0, 1, 2
+}
+
+for (let i = 0; i < 5; i++) {
+    if (i === 3) {
+        continue; // Pula a iteração quando i for 3
+    }
+    console.log(i); // Saída: 0, 1, 2, 4
+}
+
+// 7. Iteração em Map e Set
+const mapa = new Map([
+    ["chave1", "valor1"],
+    ["chave2", "valor2"],
+]);
+
+for (const [chave, valor] of mapa) {
+    console.log(`${chave}: ${valor}`);
+    // Saída:
+    // chave1: valor1
+    // chave2: valor2
+}
+
+const conjunto = new Set([1, 2, 3, 4]);
+for (const valor of conjunto) {
+    console.log(valor); // Saída: 1, 2, 3, 4
+}
+
+// Exemplos práticos
+
+// Exemplo 1: Somar valores de um array usando for
+const numeros = [10, 20, 30, 40];
+let soma = 0;
+for (let i = 0; i < numeros.length; i++) {
+    soma += numeros[i];
+}
+console.log(`Soma total: ${soma}`); // Saída: Soma total: 100
+
+// Exemplo 2: Filtrar números pares usando for...of
+const pares = [];
+for (const numero of numeros) {
+    if (numero % 2 === 0) {
+        pares.push(numero);
+    }
+}
+console.log(`Números pares: ${pares}`); // Saída: Números pares: [10, 20, 30, 40]
+
+// Exemplo 3: Iterar sobre um objeto com for...in
+for (const propriedade in pessoa) {
+    console.log(`${propriedade}: ${pessoa[propriedade]}`);
+    // Saída:
+    // nome: João
+    // idade: 25
+    // cidade: São Paulo
+}
